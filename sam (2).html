@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Browser speech recognition</title>
+    <link rel="stylesheet" href="./exp/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <script src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  </head>
+  <body>
+    <header>
+      <h1>Browser speech recognition</h1>
+    </header>
+    <main>
+        <div>
+        <div id = "meet" style="float: left;" ></div>
+        <div style="float: right;">
+        <div class="container" id="chat">
+      <button id="button">Start listening</button>
+      <input id="handle" type="text" placeholder="name" />
+      <div id="result"></div>
+      <p id="message" hidden aria-hidden="true">
+        Your browser doesn't support Speech Recognition. Sorry.
+      </p>
+    </div>
+    </div>
+</div>
+    </main>
+    
+    <script>
+        $(document).ready(function(){
+                      var domain = "meet.jit.si";
+                      var options = {
+                          roomName: "helloRoom",
+                          width: 700,
+                          height: 700,
+                          parentNode: document.querySelector('#meet')
+                      }
+                      var api = new JitsiMeetExternalAPI(domain,options);
+                  });
+      </script>
+      <script src="/clientS.js"></script>
+    </script>
+  </body>
+</html>
